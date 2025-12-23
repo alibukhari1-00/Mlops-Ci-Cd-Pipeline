@@ -43,12 +43,18 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-      # 6️⃣ Build and Push Docker image
+      # 6️⃣ Debug Docker login (optional)
+      - name: Verify Docker login
+        run: |
+          docker info
+          echo "Logged in user: $(docker info --format '{{.Username}}')"
+
+      # 7️⃣ Build and Push Docker image
       - name: Build and Push Docker image
         uses: docker/build-push-action@v4
         with:
           context: .
           push: true
           tags: |
-            docker.io/iamalibukhari/python-mlops-app:1.0.0
-            docker.io/iamalibukhari/python-mlops-app:latest
+              iamalibukhari/python-mlops-app:1.0.0
+              iamalibukhari/python-mlops-app:latest
