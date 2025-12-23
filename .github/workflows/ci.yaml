@@ -56,5 +56,5 @@ jobs:
           context: .
           push: true
           tags: |
-              iamalibukhari/python-mlops-app:1.0.0
+              iamalibukhari/python-mlops-app:alibhai
               iamalibukhari/python-mlops-app:latest
