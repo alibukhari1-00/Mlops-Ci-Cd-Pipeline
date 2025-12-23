@@ -43,7 +43,7 @@ jobs:
           username: ${{ secrets.DOCKER_HUB_USERNAME }}
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
-      # 6️⃣ Debug Docker login (optional)
+      # 6️⃣ Optional: Verify Docker login
       - name: Verify Docker login
         run: |
           docker info
@@ -56,5 +56,5 @@ jobs:
           context: .
           push: true
           tags: |
-              iamalibukhari/python-mlops-app:alibhai
-              iamalibukhari/python-mlops-app:latest
+            ${{ secrets.DOCKER_HUB_USERNAME }}/python-mlops-app:alibhai
+            ${{ secrets.DOCKER_HUB_USERNAME }}/python-mlops-app:latest
