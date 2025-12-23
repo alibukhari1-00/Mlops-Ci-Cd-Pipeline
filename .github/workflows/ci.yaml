@@ -35,6 +35,8 @@ jobs:
         PYTHONPATH: ./src
       run: |
         python -m pytest tests
+    - name: Logout Docker
+      run: docker logout
 
     # 5️⃣ Build & Push Docker image
     - name: Build and Push Docker image
